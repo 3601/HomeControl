@@ -1,0 +1,19 @@
+{
+  "mysql_config": {
+    "host_name": "192.168.1.65",
+	"user_name": "root",
+    "db_name": "henrik_test",
+	"password": "pmapass",
+	"port_num": "0",
+	"socket_name": "",
+	"flags": "0"
+  },
+  "sensors": {
+    "book": {
+      "table_entries": "Title Value Time"
+    },
+    "sensor2_name": {
+      "table_entries": "s2_col_title1 s2_col_title2 s2_col_title3 s2_col_title4"
+    }
+  }
+}
