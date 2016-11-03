@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=MysqlReadWrite
+PROJECTNAME=HomeControl
 
 # Active Configuration
 DEFAULTCONF=Debug

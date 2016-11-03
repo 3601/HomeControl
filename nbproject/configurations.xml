@@ -118,8 +118,8 @@
         <ccTool>
           <standard>11</standard>
           <incDir>
-            <pElem>/usr/include/mysql/</pElem>
             <pElem>/usr/include/</pElem>
+            <pElem>/usr/include/mysql/</pElem>
           </incDir>
         </ccTool>
         <linkerTool>

@@ -9,27 +9,27 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=mysqlreadwrite
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/mysqlreadwrite
+CND_ARTIFACT_NAME_Debug=homecontrol
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/homecontrol
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=mysqlreadwrite.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/mysqlreadwrite.tar
+CND_PACKAGE_NAME_Debug=homecontrol.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/homecontrol.tar
 # Release configuration
-CND_PLATFORM_Release=Cygwin-Windows
-CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
-CND_ARTIFACT_NAME_Release=mysqlreadwrite
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/mysqlreadwrite
-CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
-CND_PACKAGE_NAME_Release=mysqlreadwrite.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/mysqlreadwrite.tar
+CND_PLATFORM_Release=GNU-Linux
+CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
+CND_ARTIFACT_NAME_Release=homecontrol
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/homecontrol
+CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
+CND_PACKAGE_NAME_Release=homecontrol.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/homecontrol.tar
 # Raspberry configuration
-CND_PLATFORM_Raspberry=Cygwin-Windows
-CND_ARTIFACT_DIR_Raspberry=dist/Raspberry/Cygwin-Windows
-CND_ARTIFACT_NAME_Raspberry=mysqlreadwrite
-CND_ARTIFACT_PATH_Raspberry=dist/Raspberry/Cygwin-Windows/mysqlreadwrite
-CND_PACKAGE_DIR_Raspberry=dist/Raspberry/Cygwin-Windows/package
-CND_PACKAGE_NAME_Raspberry=mysqlreadwrite.tar
-CND_PACKAGE_PATH_Raspberry=dist/Raspberry/Cygwin-Windows/package/mysqlreadwrite.tar
+CND_PLATFORM_Raspberry=GNU-Linux
+CND_ARTIFACT_DIR_Raspberry=dist/Raspberry/GNU-Linux
+CND_ARTIFACT_NAME_Raspberry=homecontrol
+CND_ARTIFACT_PATH_Raspberry=dist/Raspberry/GNU-Linux/homecontrol
+CND_PACKAGE_DIR_Raspberry=dist/Raspberry/GNU-Linux/package
+CND_PACKAGE_NAME_Raspberry=homecontrol.tar
+CND_PACKAGE_PATH_Raspberry=dist/Raspberry/GNU-Linux/package/homecontrol.tar
 #
 # include compiler specific variables
 #
