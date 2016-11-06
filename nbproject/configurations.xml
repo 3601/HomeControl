@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>am2302base.h</itemPath>
       <itemPath>columnEntry.h</itemPath>
       <itemPath>configBase.h</itemPath>
       <itemPath>configRW.h</itemPath>
@@ -17,6 +18,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>am2302base.cpp</itemPath>
       <itemPath>configBase.cpp</itemPath>
       <itemPath>configRW.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -47,12 +49,17 @@
           <incDir>
             <pElem>/usr/include</pElem>
             <pElem>/usr/include/mysql</pElem>
+            <pElem>../../wiringPi/wiringPi</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
-          <commandLine>-lmysqlclient</commandLine>
+          <commandLine>-lmysqlclient -lwiringPi</commandLine>
         </linkerTool>
       </compileType>
+      <item path="am2302base.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="am2302base.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="columnEntry.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="configBase.cpp" ex="false" tool="1" flavor2="0">
@@ -91,6 +98,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="am2302base.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="am2302base.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="columnEntry.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="configBase.cpp" ex="false" tool="1" flavor2="0">
@@ -120,12 +131,17 @@
           <incDir>
             <pElem>/usr/include/</pElem>
             <pElem>/usr/include/mysql/</pElem>
+            <pElem>../../wiringPi/wiringPi</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
-          <commandLine>-lmysqlclient</commandLine>
+          <commandLine>-lmysqlclient -lwiringPi</commandLine>
         </linkerTool>
       </compileType>
+      <item path="am2302base.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="am2302base.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="columnEntry.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="configBase.cpp" ex="false" tool="1" flavor2="11">

@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/am2302base.o \
 	${OBJECTDIR}/configBase.o \
 	${OBJECTDIR}/configRW.o \
 	${OBJECTDIR}/main.o
@@ -63,6 +64,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/homecontrol: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/homecontrol ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/am2302base.o: am2302base.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/am2302base.o am2302base.cpp
 
 ${OBJECTDIR}/configBase.o: configBase.cpp 
 	${MKDIR} -p ${OBJECTDIR}
