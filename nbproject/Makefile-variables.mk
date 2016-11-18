@@ -15,21 +15,21 @@ CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
 CND_PACKAGE_NAME_Debug=homecontrol.tar
 CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/homecontrol.tar
 # Release configuration
-CND_PLATFORM_Release=GNU-Linux
-CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
+CND_PLATFORM_Release=rpi64-Linux
+CND_ARTIFACT_DIR_Release=dist/Release/rpi64-Linux
 CND_ARTIFACT_NAME_Release=homecontrol
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/homecontrol
-CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
+CND_ARTIFACT_PATH_Release=dist/Release/rpi64-Linux/homecontrol
+CND_PACKAGE_DIR_Release=dist/Release/rpi64-Linux/package
 CND_PACKAGE_NAME_Release=homecontrol.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/homecontrol.tar
+CND_PACKAGE_PATH_Release=dist/Release/rpi64-Linux/package/homecontrol.tar
 # Raspberry configuration
-CND_PLATFORM_Raspberry=GNU-Linux
-CND_ARTIFACT_DIR_Raspberry=dist/Raspberry/GNU-Linux
+CND_PLATFORM_Raspberry=rpi64-Linux
+CND_ARTIFACT_DIR_Raspberry=dist/Raspberry/rpi64-Linux
 CND_ARTIFACT_NAME_Raspberry=homecontrol
-CND_ARTIFACT_PATH_Raspberry=dist/Raspberry/GNU-Linux/homecontrol
-CND_PACKAGE_DIR_Raspberry=dist/Raspberry/GNU-Linux/package
+CND_ARTIFACT_PATH_Raspberry=dist/Raspberry/rpi64-Linux/homecontrol
+CND_PACKAGE_DIR_Raspberry=dist/Raspberry/rpi64-Linux/package
 CND_PACKAGE_NAME_Raspberry=homecontrol.tar
-CND_PACKAGE_PATH_Raspberry=dist/Raspberry/GNU-Linux/package/homecontrol.tar
+CND_PACKAGE_PATH_Raspberry=dist/Raspberry/rpi64-Linux/package/homecontrol.tar
 #
 # include compiler specific variables
 #

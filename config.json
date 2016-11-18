@@ -12,8 +12,11 @@
     "book": {
       "table_entries": "Title Value Time"
     },
-    "sensor2_name": {
-      "table_entries": "s2_col_title1 s2_col_title2 s2_col_title3 s2_col_title4"
+    "AM2302": {
+      "table_entries": "s2_col_title1 s2_col_title2 s2_col_title3 s2_col_title4",
+      "pin_number": "3",
+      "bit_length_cutoff": "16",
+      "priority": "55"
     }
   }
 }

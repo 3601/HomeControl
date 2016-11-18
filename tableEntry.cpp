@@ -41,7 +41,7 @@ bool TableEntry<T1,T2,T3>::addTableConfig(ConfigRW& cfg, const std::string& sens
 {
     std::istringstream entryStream { };
     
-    const boost::property_tree::ptree& Ttree = cfg.getTableConfig(sensor_name);
+    const boost::property_tree::ptree& Ttree = cfg.getSensorConfig(sensor_name);
     
     try
     {
@@ -117,12 +117,6 @@ bool TableEntry<T1,T2,T3>::addTimeStamp(const std::string& entryTitle)
                   << " in Table: " << getTitle() << "." << entryTitle;
         return false;
     }
-
-        
-    
-    
-    
-    
     
     return true;
 }

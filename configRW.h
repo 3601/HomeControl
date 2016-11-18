@@ -30,11 +30,11 @@ class ConfigRW : public ConfigBase
         // Exception is thrown if read-error is encountered
         const boost::property_tree::ptree& getDbConfig();
         
-         // A const reference to the sub-tree containing sensors.sensor_name is 
-         // returned. Path is taken from the ConfigLayout class
+        // A const reference to the sub-tree containing sensors.sensor_name is 
+        // returned. Path is taken from the ConfigLayout class
         // Path to mysql_config is taken from the configLayout class
         // Exception is thrown if read-error is encountered
-        const boost::property_tree::ptree& getTableConfig(const std::string& sensor_name);
+        const boost::property_tree::ptree& getSensorConfig(const std::string& sensor_name);
 };
 
 #endif /* CONFIGIO_H */

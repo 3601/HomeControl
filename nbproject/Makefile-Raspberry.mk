@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux
+CND_PLATFORM=rpi64-Linux
 CND_DLIB_EXT=so
 CND_CONF=Raspberry
 CND_DISTDIR=dist
@@ -63,27 +63,27 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/homecontrol: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/homecontrol ${OBJECTFILES} ${LDLIBSOPTIONS} -lmysqlclient -lwiringPi
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/homecontrol ${OBJECTFILES} ${LDLIBSOPTIONS} -lmysqlclient -lwiringPi -lwiringPiDev
 
 ${OBJECTDIR}/am2302base.o: am2302base.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/am2302base.o am2302base.cpp
+	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -I../../wiringPi/devLib -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/am2302base.o am2302base.cpp
 
 ${OBJECTDIR}/configBase.o: configBase.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/configBase.o configBase.cpp
+	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -I../../wiringPi/devLib -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/configBase.o configBase.cpp
 
 ${OBJECTDIR}/configRW.o: configRW.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/configRW.o configRW.cpp
+	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -I../../wiringPi/devLib -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/configRW.o configRW.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/usr/include/ -I/usr/include/mysql/ -I../../wiringPi/wiringPi -I../../wiringPi/devLib -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

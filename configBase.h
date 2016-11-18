@@ -38,7 +38,12 @@ public:
     const std::string sensors { "sensors" };
 
     // name of table entries in sensor module
-    const std::string table_entries { "table_entries" };   
+    const std::string table_entries { "table_entries" };  
+    
+    // AM2302 specific entries
+    const std::string pin_number { "pin_number" };
+    const std::string bit_length_cutoff { "bit_length_cutoff" };
+    const std::string priority { "priority" };
 
 };
 

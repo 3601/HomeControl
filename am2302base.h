@@ -14,28 +14,50 @@
 #ifndef AM2302BASE_H
 #define AM2302BASE_H
 
-#include<wiringPi.h>
-#include<stdint.h>
+#include "configRW.h"
+#include <string>
+#include <array>
+
+// Remember to call wiringPiSetup() to initialize and set pin numbering
+// priority of thread can be adjusted by calling piHiPri(xx) with value
+// from 0 - 100
 
 class am2302base 
 {
     private:
-        const int max_timings { 85 };
-        const int dht_pin { };  // pin to communicate with on AM2302
-        const int reps { };     // number of repeated measurements
+        const int max_timings { 85 };  // total number of pulses read
         
-        uint8_t lastState  { HIGH };
-        uint8_t signalCnt  { 0 };
-        uint8_t arrayIndex { 0 };
+        int bitLengthCutoff { };
+        int pinNumber { };  // communication pin using wiringPi numbering
+        int priority { };   // input for WiringPi function wiHiPri(x)
+     
+        using BitArray = std::array<int,40>;
         
-         int byteArray[5] { 0,0,0,0,0 };
+        bool readOnce(double& RH, double& T, BitArray& bitArray);
+        
+    public:
 
-public:
-    am2302base(int dht_pin = 3, int reps_ = 3) 
-        : dht_pin(dht_pin), 
-          reps(([&]() -> int { if (reps_ < 1) return 1; 
-                               else if (reps_ > 5) return 5; })() ) { }
-
+        am2302base(int pinNumber_ = 3, int bitLengthCutoff_ = 16, int priority_ = 55);
+        
+        // Fetches AM2302 config information from the config file via the 
+        // ConfigRW class. Exception is thrown if error is encountered 
+        // if 'priority' is not specified in the config file, if will be set
+        // to 0 and the piHIPri function will not be called
+        am2302base(ConfigRW& cfg, std::string sensor_name = "AM2302");          
+        
+        // if reps > 1, the median temperature and humidity is return
+        // false is returned if the number of failed reads is equal to reps
+        // when reps >= 5, otherwise if number of failed reads is >5
+        bool read(double& RH, double& T, int reps = 3, int delay_ms = 2000);
+        
+        
+        // measure length of bit pulses and takes median of average for each
+        // of the replicate measurements
+        // returns 0 if the number of failed reads is equal to reps when
+        // reps >= 5, similarly if number of failed reads is 5
+        int estimateBitLengthCutoff(int reps = 3, int delay_ms = 2000);
+        
+        void setBitLengthCutoff(int cutoff); 
 
 
 };

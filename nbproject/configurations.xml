@@ -39,7 +39,7 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -132,10 +132,11 @@
             <pElem>/usr/include/</pElem>
             <pElem>/usr/include/mysql/</pElem>
             <pElem>../../wiringPi/wiringPi</pElem>
+            <pElem>../../wiringPi/devLib</pElem>
           </incDir>
         </ccTool>
         <linkerTool>
-          <commandLine>-lmysqlclient -lwiringPi</commandLine>
+          <commandLine>-lmysqlclient -lwiringPi -lwiringPiDev</commandLine>
         </linkerTool>
       </compileType>
       <item path="am2302base.cpp" ex="false" tool="1" flavor2="0">

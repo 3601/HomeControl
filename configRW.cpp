@@ -26,7 +26,7 @@ const boost::property_tree::ptree& ConfigRW::getDbConfig()
     return tree.get_child(mysql_config);  // exception thrown upon failure
 }
 
-const boost::property_tree::ptree& ConfigRW::getTableConfig(const std::string& sensor_name)
+const boost::property_tree::ptree& ConfigRW::getSensorConfig(const std::string& sensor_name)
 {
  
     std::string path { sensors + '.' + sensor_name };
