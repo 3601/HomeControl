@@ -10,6 +10,9 @@
 #include <string>
 
 #include "mysqlRW.h"
+#include "am2302base.h"
+
+#include "wiringPi.h"
 
 //#include "tableEntry.h"
 //#include "configRW.h"
@@ -73,7 +76,31 @@ int main()
             break;      
     }
     
+    
+    
+    std::cout << std::endl << "--- Read from AM2302 sensor on Raspberry Pi ---" << std::endl;
+    
+    double T { }, RH { };
+    int bitcutoff { };
+    
+    std::cout << "Read configuration from config.json" << std::endl;
+    am2302base am2302sensor(cfgFile,"AM2302");
+    
+    
+    std::cout << "Read from AM2302" << std::endl;
+    if (am2302sensor.read(RH, T, 3, 2000))
+        std::cout << "Temperature: " << T << "C, and humidity: " << RH << "%" << std::endl;
+    else
+        std::cout << "AM2302 reading failed";
+    
+    std::cout << "Estimate bit-length cutoff" << std::endl;
+    
+    bitcutoff = am2302sensor.estimateBitLengthCutoff(3, 2000);
+    if (!bitcutoff)
+        std::cout << "Estimated bit-length cutoff: " << bitcutoff << std::endl;
+    else
+        std::cout << "Failure estimating bit-length cutoff" << std::endl;
+    
     return 0; 
-
 }
 
