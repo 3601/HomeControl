@@ -11,8 +11,8 @@
  * Created on November 6, 2016, 7:58 PM
  */
 
-#ifndef AM2302BASE_H
-#define AM2302BASE_H
+#ifndef AM2302_H
+#define AM2302_H
 
 #include "configRW.h"
 #include <string>
@@ -22,7 +22,7 @@
 // priority of thread can be adjusted by calling piHiPri(xx) with value
 // from 0 - 100
 
-class am2302base 
+class AM2302 
 {
     private:
         const int max_timings { 85 };  // total number of pulses read
@@ -31,19 +31,21 @@ class am2302base
         int pinNumber { };  // communication pin using wiringPi numbering
         int priority { };   // input for WiringPi function wiHiPri(x)
      
-        using BitArray = std::array<int,40>;
+        // using BitArray = std::array<int,40>;
+        
+        typedef std::array<int,40> BitArray;
         
         bool readOnce(double& RH, double& T, BitArray& bitArray);
         
     public:
 
-        am2302base(int pinNumber_ = 3, int bitLengthCutoff_ = 16, int priority_ = 55);
+        AM2302(int pinNumber_ = 3, int bitLengthCutoff_ = 16, int priority_ = 55);
         
         // Fetches AM2302 config information from the config file via the 
         // ConfigRW class. Exception is thrown if error is encountered 
         // if 'priority' is not specified in the config file, if will be set
         // to 0 and the piHIPri function will not be called
-        am2302base(ConfigRW& cfg, std::string sensor_name = "AM2302");          
+        AM2302(ConfigRW& cfg, const std::string& sensor_name = "AM2302");          
         
         // if reps > 1, the median temperature and humidity is return
         // false is returned if the number of failed reads is equal to reps
