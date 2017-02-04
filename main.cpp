@@ -10,9 +10,11 @@
 #include <string>
 
 #include "mysqlRW.h"
-#include "am2302base.h"
+#include "am2302.h"
+#include "configRW.h"
 
 #include "wiringPi.h"
+#include "maxdetect.h"
 
 //#include "tableEntry.h"
 //#include "configRW.h"
@@ -46,13 +48,16 @@ int main()
     
     std::cout << std::endl << "--- Load of config.json file ---" << std::endl;
     
-    // ./config.json
+     
     ConfigRW cfgFile("config.json");
+    
     
     sqlTable.addTableConfig(cfgFile, "book");
 
     for (const auto &indx : sqlTable)
         std::cout << indx.getTitle() << ": " << indx.getValueStr() << std::endl;
+    
+    
     
     std::cout << std::endl;
     std::cout << std::endl << "--- Establish connection to the mySQL server ---" << std::endl;
@@ -80,27 +85,46 @@ int main()
     
     std::cout << std::endl << "--- Read from AM2302 sensor on Raspberry Pi ---" << std::endl;
     
-    double T { }, RH { };
+    double T      { };
+    double RH     { };
+    
+    int T_g { };
+    int RH_g { };
+    int i_g { };
     int bitcutoff { };
     
-    std::cout << "Read configuration from config.json" << std::endl;
-    am2302base am2302sensor(cfgFile,"AM2302");
+    wiringPiSetup();
+    piHiPri(55);
+
+    std::cout << "Read from Gordon library" << std::endl;
+    for (int i = 0; i < 5; ++i)
+    {
+        delay(100);
+        i_g = readRHT03(3, &T_g, &RH_g);
+        std::cout << "#" << i_g << ". Temperature: " << T_g / 10.0 << "C, and humidity: " << RH_g / 10.0 << "%" << std::endl;
+    }
     
+    
+    std::cout << "Read configuration from config.json" << std::endl;
+    AM2302 am2302(cfgFile, "AM2302");
     
     std::cout << "Read from AM2302" << std::endl;
-    if (am2302sensor.read(RH, T, 3, 2000))
+    if (am2302.read(RH, T, 3, 1000))
         std::cout << "Temperature: " << T << "C, and humidity: " << RH << "%" << std::endl;
     else
-        std::cout << "AM2302 reading failed";
+        std::cout << "AM2302 reading failed" << std::endl;
     
-    std::cout << "Estimate bit-length cutoff" << std::endl;
     
-    bitcutoff = am2302sensor.estimateBitLengthCutoff(3, 2000);
-    if (!bitcutoff)
-        std::cout << "Estimated bit-length cutoff: " << bitcutoff << std::endl;
-    else
-        std::cout << "Failure estimating bit-length cutoff" << std::endl;
+    //std::cout << "Estimate bit-length cutoff" << std::endl;
     
+    //bitcutoff = am2302.estimateBitLengthCutoff(3, 2000);
+    //if (!bitcutoff)
+    //    std::cout << "Estimated bit-length cutoff: " << bitcutoff << std::endl;
+    //else
+    //    std::cout << "Failure estimating bit-length cutoff" << std::endl;
+    
+     
+     
     return 0; 
 }
 
